@@ -1,4 +1,4 @@
-import React, { useState,useReducer } from "react";
+import React, { useState,useReducer, useEffect } from "react";
 import "./../styles/App.css";
 
 
@@ -136,15 +136,86 @@ const states = [{
 		}]
 	}]
 }];
+// let data  = states;
 
-
+ 
 function App() 
-{
-	// Do not alter/remove main div
+{  
+	 const[cities,setCities] = useState([]);
+	 const[landmark,setLandmark] = useState([]);
+	 const[currentState,setCurrentState] = useState([]);
+	 const[currentCity,setCurrentCity] = useState([]);
+	 const[currentLandmark,setCurrentLandmark]  = useState([]);
+	function handlestate(idx){
+		setCurrentState([states[idx].name,states[idx].description]);
+	    
+	      let data = states.filter((item)=>(item.name===states[idx].name))[0].city;
+		  setCities(data);
+		console.log("what is come in cities",cities);
+	}
+	 
+	 
+	function handleCity(idx){
+		setCurrentCity([cities[idx].name,cities[idx].description])
+		let Data = cities.filter((item)=>(item.name===cities[idx].name))[0].landmarks;
+		setLandmark(Data);
+		console.log("what is come in landmark",landmark);
+	}
+	function handleLandmark(idx){
+		setCurrentLandmark([landmark[idx].name,landmark[idx].description]);
+	}
+	 
 	return (
 	<div id="main">
+		<select onChange={(e)=>handlestate(e.target.value)}>
+			{
+				states.map((item,index)=>(
+					<option value={index} key={index}>{item.name}</option>
+				))
+			}
+		</select>
+		<div>
+			<p id="state-name">{currentState[0]}</p>
+			<p id="state-description">{currentState[1]}</p>
+		</div>
+
+		 
+
+		 <select onChange={(e)=>handleCity(e.target.value)}>
+			{   
+				cities.length>0 ?cities.map((item,index)=>(
+				
+					<option value={index} key={index}>{item.name}</option>
+				)):(
+					 
+					 states[0].city.map((item,index)=>(
+						<option value={index} key={index}>{item.name}</option>
+					 ))
+				)
+			}
+		</select>
+		<div>
+			<p id="city-name">{currentCity[0]}</p>
+			<p id="city-description">{currentCity[1]}</p>
+		</div>
+		<select onChange={(e)=>handleLandmark(e.target.value)}>
+			{
+				landmark.length>0  ? landmark.map((item,index)=>(
+					<option value={index} key={index}>{item.name}</option>
+				)):(
+					states[0].city.map((item,index)=>(
+						<option value={index} key={index}>{item.landmarks[0].name}</option>
+					))
+				)
+			}
+		</select>
+		 <div>
+			<p id="state-name">{currentLandmark[0]}</p>
+			<p id="state-description">{currentLandmark[1]}</p>
+		</div>
 		
-	</div>
+		
+			</div>
 	);
 }
 
