@@ -174,7 +174,7 @@ function App()
 				))
 			}
 		</select>
-		<div>
+		<div  id="state-title">
 			<p id="state-name">{currentState[0]}</p>
 			<p id="state-description">{currentState[1]}</p>
 		</div>
