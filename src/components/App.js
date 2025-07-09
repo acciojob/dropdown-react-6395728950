@@ -167,21 +167,21 @@ function App()
 	 
 	return (
 	<div id="main">
-		<select onChange={(e)=>handlestate(e.target.value)}>
+		<select onChange={(e)=>handlestate(e.target.value)} id="state">
 			{
 				states.map((item,index)=>(
 					<option value={index} key={index}>{item.name}</option>
 				))
 			}
 		</select>
-		<div id="state">
+		<div>
 			<p id="state-name">{currentState[0]}</p>
 			<p id="state-description">{currentState[1]}</p>
 		</div>
 
 		 
 
-		 <select onChange={(e)=>handleCity(e.target.value)}>
+		 <select onChange={(e)=>handleCity(e.target.value)} id="city">
 			{   
 				cities.length>0 ?cities.map((item,index)=>(
 				
@@ -194,11 +194,11 @@ function App()
 				)
 			}
 		</select>
-		<div id="city">
+		<div>
 			<p id="city-name">{currentCity[0]}</p>
 			<p id="city-description">{currentCity[1]}</p>
 		</div>
-		<select onChange={(e)=>handleLandmark(e.target.value)}>
+		<select onChange={(e)=>handleLandmark(e.target.value)} id="landmarks">
 			{
 				landmark.length>0  ? landmark.map((item,index)=>(
 					<option value={index} key={index}>{item.name}</option>
@@ -209,7 +209,7 @@ function App()
 				)
 			}
 		</select>
-		 <div id="landmarks">
+		 <div>
 			<p id="landmarks-name">{currentLandmark[0]}</p>
 			<p id="landmarks-description">{currentLandmark[1]}</p>
 		</div>
