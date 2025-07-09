@@ -198,7 +198,7 @@ function App()
 			<p id="city-name">{currentCity[0]}</p>
 			<p id="city-description">{currentCity[1]}</p>
 		</div>
-		<select onChange={(e)=>handleLandmark(e.target.value)} id="landmarks">
+		<select onChange={(e)=>handleLandmark(e.target.value)} id="landmark">
 			{
 				landmark.length>0  ? landmark.map((item,index)=>(
 					<option value={index} key={index}>{item.name}</option>
