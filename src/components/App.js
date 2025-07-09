@@ -174,7 +174,7 @@ function App()
 				))
 			}
 		</select>
-		<div>
+		<div id="state">
 			<p id="state-name">{currentState[0]}</p>
 			<p id="state-description">{currentState[1]}</p>
 		</div>
@@ -194,7 +194,7 @@ function App()
 				)
 			}
 		</select>
-		<div>
+		<div id="city">
 			<p id="city-name">{currentCity[0]}</p>
 			<p id="city-description">{currentCity[1]}</p>
 		</div>
@@ -209,9 +209,9 @@ function App()
 				)
 			}
 		</select>
-		 <div>
-			<p id="state-name">{currentLandmark[0]}</p>
-			<p id="state-description">{currentLandmark[1]}</p>
+		 <div id="landmarks">
+			<p id="landmarks-name">{currentLandmark[0]}</p>
+			<p id="landmarks-description">{currentLandmark[1]}</p>
 		</div>
 		
 		
